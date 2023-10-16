@@ -28,14 +28,9 @@ public class ClientController {
     }
 
     @PostMapping("/create")
-    public String createClients(@RequestBody Clients clients){
+    String createClients(Clients clients){
          clientRepository.save(clients);
          return "Client has been created successfully.";
-    }
-     @PutMapping("/edit")
-    public String editClients(@RequestBody Clients clients){
-         clientRepository.save(clients);
-         return "Client has been edit successfully";
     }
     
     @DeleteMapping(value="/delete/{id}")

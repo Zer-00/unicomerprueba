@@ -7,9 +7,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name="clients")
@@ -19,13 +16,13 @@ public class Clients {
     private Integer id;
     
     @Basic
-    private String first_Name;
-    private String last_Name;
+    private String first_name;
+    private String last_name;
     private Date birthday;
     private String gender;
     private String cellphone;
     private String home_phone;
-    private String address_Home;
+    private String address_home;
     private String profession;
     private Integer incomes;
     public Integer getId() {
@@ -34,17 +31,17 @@ public class Clients {
     public void setId(Integer id) {
         this.id = id;
     }
-    public String getFirst_Name() {
-        return first_Name;
+    public String getFirst_name() {
+        return first_name;
     }
-    public void setFirst_Name(String first_Name) {
-        this.first_Name = first_Name;
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
-    public String getLast_Name() {
-        return last_Name;
+    public String getLast_name() {
+        return last_name;
     }
-    public void setLast_Name(String last_Name) {
-        this.last_Name = last_Name;
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
     public Date getBirthday() {
         return birthday;
@@ -70,11 +67,11 @@ public class Clients {
     public void setHome_phone(String home_phone) {
         this.home_phone = home_phone;
     }
-    public String getAddress_Home() {
-        return address_Home;
+    public String getAddress_home() {
+        return address_home;
     }
-    public void setAddress_Home(String address_Home) {
-        this.address_Home = address_Home;
+    public void setAddress_home(String address_home) {
+        this.address_home = address_home;
     }
     public String getProfession() {
         return profession;
@@ -88,7 +85,8 @@ public class Clients {
     public void setIncomes(Integer incomes) {
         this.incomes = incomes;
     }
+
     
-    
+  
 
 }
