@@ -25,9 +25,25 @@ public class ClientServices {
     }
 
   
-     public Clients updateClient(Clients clients, Integer id){
-        clientRepository.findById(id);
-        return clientRepository.save(clients);
+    public Clients updateClient(Integer id, Clients updatedClient){
+        Clients existingClient = clientRepository.findById(id).orElse(null);
+        
+        if (existingClient != null) {
+            existingClient.setFirst_name(updatedClient.getFirst_name());
+            existingClient.setLast_name(updatedClient.getLast_name());
+            existingClient.setAddress_home(updatedClient.getAddress_home());
+            existingClient.setBirthday(updatedClient.getBirthday());
+            existingClient.setCellphone(updatedClient.getCellphone());
+            existingClient.setGender(updatedClient.getGender());
+            existingClient.setHome_phone(updatedClient.getHome_phone());
+            existingClient.setIncomes(updatedClient.getIncomes());
+            existingClient.setProfession(updatedClient.getProfession());
+            
+
+            return clientRepository.save(existingClient);
+        } else {
+            return null; 
+        }
     }
     
     public void deleteClient(Integer id){

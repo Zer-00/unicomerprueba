@@ -21,27 +21,34 @@ import lombok.RequiredArgsConstructor;
 @RequestMapping("/clients")
 @RequiredArgsConstructor
 public class ClientController {
-    @Autowired 
+    @Autowired
     private ClientServices clientServices;
+
     @GetMapping("/get")
-    public List<Clients> getClients(){
+    public List<Clients> getClients() {
         return (List<Clients>) clientServices.getClients();
     }
 
     @PostMapping("/create")
-    public Clients createClients(@RequestBody Clients clients){
+    public Clients createClients(@RequestBody Clients clients) {
         return clientServices.createClient(clients);
     }
 
-    @PutMapping(value = "/update/{id}")
-    public String updateClient(Clients clients, @PathVariable Integer id){
-         clientServices.updateClient(clients,id);
-         return "Client has been edit successfully";
+    @PutMapping("/update/{id}")
+    public String updateClient(@PathVariable Integer id, @RequestBody Clients updatedClient) {
+        Clients updated = clientServices.updateClient(id, updatedClient);
+
+        if (updated != null) {
+            return "Client has been updated successfully";
+        } else {
+            return "Client not found"; 
+        }
     }
-    @DeleteMapping(value="/delete/{id}")
-    public String deleteClient(@PathVariable Integer id){
+
+    @DeleteMapping(value = "/delete/{id}")
+    public String deleteClient(@PathVariable Integer id) {
         clientServices.deleteClient(id);
         return "Client has been deleted successfully.";
     }
-    
+
 }
