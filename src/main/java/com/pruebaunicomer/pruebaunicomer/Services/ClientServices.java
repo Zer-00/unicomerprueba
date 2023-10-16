@@ -16,15 +16,17 @@ public class ClientServices {
     @Autowired 
     private ClientRepository clientRepository;
 
-    public void createClient(Clients clients){
-        clientRepository.save(clients);
+    public Clients createClient(Clients clients){
+        return clientRepository.save(clients);
     }
 
     public List<Clients> getClients(){
         return (List<Clients>) clientRepository.findAll();
     }
 
-     public Clients updateClient(Clients clients){
+  
+     public Clients updateClient(Clients clients, Integer id){
+        clientRepository.findById(id);
         return clientRepository.save(clients);
     }
     
