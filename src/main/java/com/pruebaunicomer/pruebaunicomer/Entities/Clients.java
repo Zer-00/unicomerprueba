@@ -5,6 +5,7 @@ import java.sql.Date;
 import jakarta.persistence.Basic;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
@@ -12,10 +13,9 @@ import jakarta.persistence.Table;
 @Table(name="clients")
 public class Clients {
     @Id
-    @GeneratedValue ()
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Integer id;
     
-    @Basic
     private String first_name;
     private String last_name;
     private Date birthday;

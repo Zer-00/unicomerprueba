@@ -28,12 +28,13 @@ public class ClientController {
     }
 
     @PostMapping("/create")
-    String createClients(Clients clients){
+    public String createClients(Clients clients){
+        System.out.println("pruebaaaaa"+clients);
          clientRepository.save(clients);
          return "Client has been created successfully.";
     }
     @PutMapping("/edit")
-    public String editClients(@RequestBody Clients clients){
+    public String editClients(Clients clients){
          clientRepository.save(clients);
          return "Client has been edit successfully";
     }
