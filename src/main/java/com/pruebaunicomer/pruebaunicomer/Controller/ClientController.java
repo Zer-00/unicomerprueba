@@ -32,7 +32,11 @@ public class ClientController {
          clientRepository.save(clients);
          return "Client has been created successfully.";
     }
-    
+    @PutMapping("/edit")
+    public String editClients(@RequestBody Clients clients){
+         clientRepository.save(clients);
+         return "Client has been edit successfully";
+    }
     @DeleteMapping(value="/delete/{id}")
     public String deleteClient(@PathVariable Integer id){
         clientRepository.deleteById(id);
