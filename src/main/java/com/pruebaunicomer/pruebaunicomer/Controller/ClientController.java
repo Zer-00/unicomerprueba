@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.pruebaunicomer.pruebaunicomer.Entities.Clients;
-import com.pruebaunicomer.pruebaunicomer.Repository.ClientRepository;
+import com.pruebaunicomer.pruebaunicomer.Services.ClientServices;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
 
@@ -20,26 +20,26 @@ import io.swagger.v3.oas.annotations.parameters.RequestBody;
 @RequestMapping("/clients")
 public class ClientController {
     @Autowired 
-    private ClientRepository clientRepository;
+    private ClientServices clientServices;
 
     @GetMapping("/get")
     public List<Clients> getClients(){
-        return (List<Clients>) clientRepository.findAll();
+        return (List<Clients>) clientServices.getClients();
     }
 
     @PostMapping("/create")
-    public String createClients(Clients clients){
-         clientRepository.save(clients);
-         return "Client has been created successfully.";
+    public Clients createClients(@RequestBody Clients clients){
+         return this.clientServices.createClient(clients);
+         
     }
-    @PutMapping("/edit")
-    public String editClients(Clients clients){
-         clientRepository.save(clients);
+    @PutMapping("/update")
+    public String updateClient(Clients clients){
+         clientServices.updateClient(clients);
          return "Client has been edit successfully";
     }
     @DeleteMapping(value="/delete/{id}")
     public String deleteClient(@PathVariable Integer id){
-        clientRepository.deleteById(id);
+        clientServices.deleteClient(id);
         return "Client has been deleted successfully.";
     }
     
