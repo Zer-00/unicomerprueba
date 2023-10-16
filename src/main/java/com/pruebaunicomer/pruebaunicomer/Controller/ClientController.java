@@ -29,7 +29,6 @@ public class ClientController {
 
     @PostMapping("/create")
     public String createClients(Clients clients){
-        System.out.println("pruebaaaaa"+clients);
          clientRepository.save(clients);
          return "Client has been created successfully.";
     }
