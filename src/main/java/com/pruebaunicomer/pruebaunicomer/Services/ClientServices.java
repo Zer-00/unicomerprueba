@@ -8,13 +8,16 @@ import org.springframework.stereotype.Service;
 import com.pruebaunicomer.pruebaunicomer.Entities.Clients;
 import com.pruebaunicomer.pruebaunicomer.Repository.ClientRepository;
 
+import lombok.RequiredArgsConstructor;
+
 @Service
+@RequiredArgsConstructor
 public class ClientServices {
     @Autowired 
     private ClientRepository clientRepository;
 
-    public Clients createClient(Clients clients){
-        return clientRepository.save(clients);
+    public void createClient(Clients clients){
+        clientRepository.save(clients);
     }
 
     public List<Clients> getClients(){

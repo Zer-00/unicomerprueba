@@ -3,7 +3,7 @@ GO
 
 USE clientsDB;
 
-CREATE TABLE clients(id int PRIMARY KEY,
+CREATE TABLE clients(id int PRIMARY KEY IDENTITY(1,1),
 first_name nvarchar(60),
 last_name nvarchar(60),
 birthday date,
@@ -16,6 +16,6 @@ incomes int
 );
 GO
 
-insert into clients values (1,'Jonathan', 'Martinez', '2002/10/02','M','79176023','79176023','San Salvador','Developer',10000)
+insert into clients values ('Jonathan', 'Martinez', '2002/10/02','M','79176023','79176023','San Salvador','Developer',10000)
 
 SELECT * FROM clients;

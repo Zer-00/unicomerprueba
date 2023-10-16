@@ -15,9 +15,11 @@ import com.pruebaunicomer.pruebaunicomer.Entities.Clients;
 import com.pruebaunicomer.pruebaunicomer.Services.ClientServices;
 
 import io.swagger.v3.oas.annotations.parameters.RequestBody;
+import lombok.RequiredArgsConstructor;
 
 @RestController
 @RequestMapping("/clients")
+@RequiredArgsConstructor
 public class ClientController {
     @Autowired 
     private ClientServices clientServices;
@@ -28,8 +30,8 @@ public class ClientController {
     }
 
     @PostMapping("/create")
-    public Clients createClients(@RequestBody Clients clients){
-         return this.clientServices.createClient(clients);
+    public void createClients(@RequestBody Clients clients){
+        clientServices.createClient(clients);
          
     }
     @PutMapping("/update")
