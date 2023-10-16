@@ -16,6 +16,6 @@ incomes int
 );
 GO
 
-insert into clients values (3,'Jonathan', 'Martinez', '2002/10/02','M','79176023','79176023','San Salvador','Developer',1400)
+insert into clients values (3,'Jonathan', 'Martinez', '2002/10/02','M','79176023','79176023','San Salvador','Developer',10000)
 
 SELECT * FROM clients;
